@@ -41,5 +41,32 @@ def RobotArco():
             esfuerzo +=1 #aumentamos el esfuerzo o costo ya que cambio el valor
             #mostramos el valor del esfuerzo.
             print("Valor del esfuerzo o costo =" +str(esfuerzo))
+            if estado_tiroM =='0': # El estado de la locacion M es igual a 0 es un tiro fallido
+                #En caso de que sea 0 el tiro es fallido
+                print("En el escenario: "+estado_tiroM + ", el robot ha fallado el tiro con arco")
+                print("Nos pasamos al escenario de tiro en la Mañana ") #Nos pasamos a la locacion de la mañana.
+                #El robot va a lanzar la flecha
+                print("Lanzando felcha")
+                esfuerzo+=1 #aumenta el esfuerzo o costo ya que cambio el valor
+                #vamos a mostrar el valor del esfuerzo
+                print("Valor del esfuerzo o costo actual =" +str(esfuerzo))
+                #afirmamos que el robot en el escenario en la Mañana acerto el tiro con arco
+                print("El robot en el escenario en la mañana acerto el tiro con arco")
+                
+                #Ahora vamos a realizar lo mismo para la locacion de tiro en la Noche
+                if estado_tiroN =='0':
+                    print("En el escenario: "+estado_tiroN + ", el robot ha fallado el tiro con arco")
+                    print("Nos pasamos al escenario de tiro en la Noche ") #Nos pasamos a la locacion de la noche.
+                    #El robot va a lanzar la flecha
+                    print("Lanzando felcha")
+                    esfuerzo+=1 #aumenta el esfuerzo o costo ya que cambio el valor
+                     #vamos a mostrar el valor del esfuerzo
+                    print("Valor del esfuerzo o costo actual =" +str(esfuerzo))
+                    print("El robot en el escenario en la noche acerto el tiro con arco")
+            else:
+                print("Todas las flechas han sido lanzadas")  
+                print("El costo o esfuerzo es : "+str(esfuerzo)) 
             
+            
+             
             
