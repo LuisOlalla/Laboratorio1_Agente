@@ -62,11 +62,39 @@ def RobotArco():
                     esfuerzo+=1 #aumenta el esfuerzo o costo ya que cambio el valor
                      #vamos a mostrar el valor del esfuerzo
                     print("Valor del esfuerzo o costo actual =" +str(esfuerzo))
-                    print("El robot en el escenario en la noche acerto el tiro con arco")
+                    print("El robot en el escenario en la noche acerto el tiro con arco") #El robot acierta el tiro
             else:
-                print("Todas las flechas han sido lanzadas")  
-                print("El costo o esfuerzo es : "+str(esfuerzo)) 
-            
-            
-             
+                print("Todas las flechas han sido lanzadas")  #No hay mas flechas que lanzar , por lo tanto ahi termina el proceso
+                print("El costo o esfuerzo es : "+str(esfuerzo)) #Mostramos el valor total del esfuerzo
+        
+        if estado_tiroT == '1': # En caso de que sea  1 el robot acierta el tiro con arco
+            print("El robot ha acertado el tiro en el escenario en la tarde ")
+            #Aqui como es 0 falla el tiro con arco en la mañana
+            if estado_tiroM =='0': 
+                #Decimos que el robot ha fallado 
+                print("El robot en el escenario en la mañana ha fallado")
+                #Lanzamos la felcha otra vez
+                print("Lanzando flecha")
+                esfuerzo+=1 #aumenta el esfuerzo al cambiar de estado
+                print("Valor del esfuerzo o costo actual =" +str(esfuerzo))
+                #Cuando haya aceertado se cambia el estado pasando a un estado acertado
+                estados_objetivos['M']='1' #El tiro es acertado
+                esfuerzo+=1 #Aumentamos el esfuerzo porque hizo un cambio
+                print("El robot en el escenario de la mañana ha acertado el tiro") #El robot en el escenario de la mañana acierta el tiro
+                print("Valor del esfuerzo o costo actual =" +str(esfuerzo)) #Actualizamos el costo o esfuerzo
+                if estado_tiroN =='0': #Pasamos al escenario de tiro en la noche
+                   print("El robot en el escenario de tiro en la noche ha fallado") #El robot falla el tiro en la noche
+                   print("Lanzando flecha") #Lanzanmos la flecha ya que el robot ha fallado
+                   esfuerzo+=1 #aumentamos el costo o esfuerzo
+                   print("Valor del esfuerzo o costo actual =" +str(esfuerzo)) #Actualizamos el costo o esfuerzo
+                   estados_objetivos['N']='1' #En caso de que sea 1 el tiro en la noche sera acertado
+                   esfuerzo+=1 #El costo va aumentar por el cambio realziado
+                   print("El robot en el escenario de la Noche ha acertado el tiro") #Decimos que el robot ha acertado el tiro
+                   print("Valor del esfuerzo o costo actual =" +str(esfuerzo)) #Actualizamos el costo o esfuerzo
+            #Si el robot en el escenario de la mañana y noche acerto los tiros, el proceso temrina.
+            else: 
+                print("El proceso de tiro ha terminado"+str(esfuerzo))
+                print("Valor del esfuerzo o costo actual =" +str(esfuerzo)) #Actualizamos el costo o esfuerzo
+                #Decimos que el escenario de la mañana y noche, el robot acerto los tiros
+                print("El robot en los escenarios de mañana y noche acerto los tiros")
             
