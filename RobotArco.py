@@ -175,7 +175,7 @@ def RobotArco():
         
         
     elif escenario_tiro =='N':
-        print("El robot de tiro con arco esta en el escenario de tiro en la tarde")
+        print("El robot de tiro con arco esta en el escenario de tiro en la noche")
         estado_tiroT = input("Escriba el estado del escenario o locacion :" +escenario_tiro) #Aqui se ingresa el estado del robot de tiro con arco
         # Ingreso del estado de escenario tiro M
         estado_tiroM= input("Escriba el estado del escenario o locacion  M")
